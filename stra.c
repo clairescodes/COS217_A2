@@ -24,6 +24,8 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
 char* Str_concat(char pcString1[], const char pcString2[]) {
     size_t lenString1 = 0; /* length of string 1 */
     size_t i = 0; 
+    assert(pcString1 != NULL); 
+    assert(pcString2 != NULL); 
     
     /* measure length of string 1 */
     while (pcString1[lenString1] != '\0') {
@@ -53,7 +55,7 @@ int Str_compare(const char pcString1[], const char pcString2[]) {
     }
     
     /* return difference of the first different character */
-    return (unsigned char)pcString1[i] - (unsigned char)pcString2[i]; 
+    return (int)((unsigned char)pcString1[i] - (unsigned char)pcString2[i]); 
 }
 
 char* Str_search(const char pcHaystack[], const char pcNeedle[]) {
