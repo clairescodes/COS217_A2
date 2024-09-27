@@ -13,7 +13,7 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
     size_t i = 0; 
     assert(pcDest != NULL); 
     assert(pcSrc != NULL); 
-    while (pcSrc != '\0') {
+    while (pcSrc[i] != '\0') {
         pcDest[i] = pcSrc[i]; 
         i++; 
     }
