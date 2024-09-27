@@ -45,12 +45,15 @@ int Str_compare(const char pcString1[], const char pcString2[]) {
     assert(pcString2 != NULL); 
     
     /* find index i where first unmatching character occurs */
-    while (pcString1[i] != '\0' && pcString2[i] != '\0' ) {
-        i++; 
+    while (pcString1[i] != '\0' && pcString2[i] != '\0') {
+        if (pcString1[i] != pcString2[i]) {
+            return (unsigned char)pcString1[i] - (unsigned char)pcString2[i];
+        }
+        i++;
     }
     
     /* return difference of the first different character */
-    return pcString1[i] - pcString2[i]; 
+    return (unsigned char)pcString1[i] - (unsigned char)pcString2[i]; 
 }
 
 char* Str_search(const char pcHaystack[], const char pcNeedle[]) {
