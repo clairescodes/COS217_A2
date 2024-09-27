@@ -49,7 +49,7 @@ int Str_compare(const char pcString1[], const char pcString2[]) {
     /* find index i where first unmatching character occurs */
     while (pcString1[i] != '\0' && pcString2[i] != '\0') {
         if (pcString1[i] != pcString2[i]) {
-            return (unsigned char)pcString1[i] - (unsigned char)pcString2[i];
+            return (int)((unsigned char)pcString1[i] - (unsigned char)pcString2[i]);
         }
         i++;
     }
