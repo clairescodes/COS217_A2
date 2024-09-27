@@ -22,7 +22,7 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
 }
 
 char* Str_concat(char pcString1[], const char pcString2[]) {
-    size_t lenString1; /* length of string 1 */
+    size_t lenString1 = 0; /* length of string 1 */
     size_t i = 0; 
     
     /* measure length of string 1 */
