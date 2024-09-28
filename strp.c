@@ -56,12 +56,29 @@ int Str_compare(const char *pcStr1, const char *pcStr2) {
 }
 
 char* Str_search(const char *pcHaystack, const char *pcNeedle) {
+    const char *pcH, *pcN;
     assert(pcHaystack != NULL); 
     assert(pcNeedle != NULL); 
 
     /* handle empty strings*/
     if (*pcNeedle == '\0') {
         return (char*)pcHaystack;
+    }
+
+    while (*pcHaystack != '\0') {
+        pcH = pcHaystack;
+        pcN = pcNeedle;
+
+        while (*pcN != '\0' && *pcH == *pcN) {
+            pcH++;
+            pcN++;
+        }
+
+        if (*pcN == '\0') {
+            return (char *)pcHaystack;
+        }
+
+        pcHaystack++;
     }
 
     return NULL; /* when Needle not found, return null */
