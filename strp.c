@@ -11,9 +11,10 @@ size_t Str_getLength(const char *pcSrc) {
 }
 
 char* Str_copy(char *pcDest, const char *pcSrc) {
+    char *pcDestStart; /* save destination string's start */
     assert(pcDest != NULL); 
-    assert(pcSrc != NULL); 
-    char *pcDestStart = pcDest; /* save destination string's start */
+    assert(pcSrc != NULL);
+    pcDestStart = pcDest; 
     
     while (*pcSrc != '\0') {
         *pcDest = *pcSrc;
@@ -26,10 +27,10 @@ char* Str_copy(char *pcDest, const char *pcSrc) {
 }
 
 char* Str_concat(char *pcStr1, const char *pcStr2) {
+    char *pcStr1Start; 
     assert(pcStr1 != NULL); 
     assert(pcStr2 != NULL);
-
-    char *pcStr1Start = pcStr1;
+    pcStr1Start = pcStr1;
 
     while (*pcStr1 != '\0') {
         *pcStr1 = *pcStr2; 
