@@ -15,6 +15,7 @@ and edit it as appropriate.
 The course's lectures.
 The course's precepts.
 The course's website.
+The man pages on the armlab cluster.
 
 ------------------------------------------------------------------------
 What unauthorized sources of information did you use to complete the
@@ -107,5 +108,6 @@ that the destination memory area specified by the caller is large
 enough? Explain.
 
 I don't think so. Assert checks conditions at runtime but
-destination memory size cannot be done so runtime. 
+destination memory size cannot be determined runtime 
+if dynamically allocated. 
 ------------------------------------------------------------------------
