@@ -21,12 +21,16 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
+   char *pcResult;
+   const char *pcCurrent;
+   const char *pcNext;
+   size_t lenFrom;
+   size_t uReplaceCount = 0; /* count number of replaced */
+
    /* make sure each parameter is not NULL */
    assert(pcLine != NULL); 
    assert(pcFrom != NULL); 
    assert(pcTo != NULL); 
-
-   size_t numReplacements = 0; /* count number of replaced */
 
    /* if pcFrom is empty string, then write string pcLine to 
    stdout and return 0 */
@@ -44,9 +48,8 @@ static size_t replaceAndWrite(const char *pcLine,
    pcResult[0] = '\0'; /* make sure buffer starts empty */
    
    /* traverse pcLine */
-   const char *pcCurrent = pcLine;
-   const char *pcNext;
-   size_t lenFrom = strlen(pcFrom);
+   pcCurrent = pcLine;
+   lenFrom = strlen(pcFrom);
    
    while ((pcNext = strstr(pcCurrent, pcFrom)) != NULL) {
       /* append before match */
@@ -54,7 +57,7 @@ static size_t replaceAndWrite(const char *pcLine,
 
       /* append replacement */
       strcat(pcResult, pcTo);
-      numReplacements++;
+      uReplaceCount++;
 
       /* move past matched string */
       pcCurrent = pcNext + lenFrom;
@@ -63,7 +66,7 @@ static size_t replaceAndWrite(const char *pcLine,
    printf("%s", pcResult); /* write result to stdout */
    free(pcResult); /* clean up */
 
-   return numReplacements;
+   return uReplaceCount;
 }
 
 /*--------------------------------------------------------------------*/
@@ -98,8 +101,10 @@ int main(int argc, char *argv[])
    pcFrom = argv[1];
    pcTo = argv[2];
 
-   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL)
-      /* Insert your code here. */
+   while (fgets(acLine, MAX_LINE_SIZE, stdin) != NULL) 
+   {
+      uReplaceCount += replaceAndWrite(acLine, pcFrom, pcTo);
+   }
 
    fprintf(stderr, "%lu replacements\n", (unsigned long)uReplaceCount);
    return 0;
