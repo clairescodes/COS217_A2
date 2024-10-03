@@ -1,6 +1,6 @@
 /*--------------------------------------------------------------------*/
 /* replace.c                                                          */
-/* Author: ???                                                        */
+/* Author: Claire Shin                                                        */
 /*--------------------------------------------------------------------*/
 
 #include "str.h"
@@ -20,7 +20,49 @@
 static size_t replaceAndWrite(const char *pcLine,
                               const char *pcFrom, const char *pcTo)
 {
-   /* Insert your code here. */
+   /* make sure each parameter is not NULL */
+   assert(pcLine != NULL); 
+   assert(pcFrom != NULL); 
+   assert(pcTo != NULL); 
+
+   size_t numReplacements = 0; /* count number of replaced */
+
+   /* if pcFrom is empty string, then write string pcLine to 
+   stdout and return 0 */ 
+   if (strlen(pcFrom) == 0) {
+      printf("%s", pcLine);
+      return 0; 
+   }
+
+   /* Hold result string */
+   char *pcResult = malloc(strlen(pcLine) + 1);
+   if (pcResult == NULL) {
+      fprintf(stderr, "memory allocation unsuccessful\n");
+      exit(EXIT_FAILURE);
+   }
+   pcResult[0] = '\0'; /* make sure buffer starts empty */
+   
+   /* traverse pcLine */
+   const char *pcCurrent = pcLine;
+   const char *pcNext;
+   size_t lenFrom = strlen(pcFrom);
+   
+   while ((pcNext = strstr(pcCurrent, pcFrom)) != NULL) {
+      /* append before match */
+      strncat(pcResult, pcCurrent, pcNext - pcCurrent);
+
+      /* append replacement */
+      strcat(pcResult, pcTo);
+      numReplacements++;
+
+      /* move past matched string */
+      pcCurrent = pcNext + lenFrom;
+   }
+   strcat(pcResult, pcCurrent); /* append rest of string */
+   printf("%s", pcResult); /* write result to stdout */
+   free(pcResult); /* clean up */
+
+   return numReplacements;
 }
 
 /*--------------------------------------------------------------------*/
