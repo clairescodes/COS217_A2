@@ -24,8 +24,9 @@ static size_t replaceAndWrite(const char *pcLine,
    char *pcResult;
    const char *pcCurrent;
    const char *pcNext;
-   size_t lenFrom;
+   size_t lenFrom, lenTo;
    size_t uReplaceCount = 0; /* count number of replaced */
+   size_t bufferSize;
 
    /* make sure each parameter is not NULL */
    assert(pcLine != NULL); 
@@ -38,18 +39,25 @@ static size_t replaceAndWrite(const char *pcLine,
       printf("%s", pcLine);
       return 0;
    }
+   
+   lenFrom = strlen(pcFrom);
+   lenTo = strlen(pcTo);
 
-   /* Hold result string */
-   pcResult = malloc(strlen(pcLine) + 1);
+   /* allocate space if lenTo is greater than lenFrom */
+   bufferSize = strlen(pcLine);
+   if (lenTo > lenFrom) {
+      bufferSize *= lenTo;
+   }
+   bufferSize++; /* Add 1 for null terminator */
+
+   pcResult = malloc(bufferSize);
    if (pcResult == NULL) {
-      fprintf(stderr, "memory allocation unsuccessful\n");
+      fprintf(stderr, "Memory allocation failed\n");
       exit(EXIT_FAILURE);
    }
+
    pcResult[0] = '\0'; /* make sure buffer starts empty */
-   
-   /* traverse pcLine */
    pcCurrent = pcLine;
-   lenFrom = strlen(pcFrom);
    
    while ((pcNext = strstr(pcCurrent, pcFrom)) != NULL) {
       /* append before match */
