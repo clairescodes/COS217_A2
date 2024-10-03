@@ -3,7 +3,6 @@
 /* Author: Claire Shin                                                        */
 /*--------------------------------------------------------------------*/
 
-#include "str.h"
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
