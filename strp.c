@@ -13,6 +13,7 @@
  */
 #include <stddef.h>
 #include <assert.h> 
+#include "str.h"
 
 /*
  * Str_getLength
