@@ -64,7 +64,7 @@ static size_t replaceAndWrite(const char *pcLine,
    
    while ((pcNext = strstr(pcCurrent, pcFrom)) != NULL) {
       /* append before match */
-      strncat(pcResult, pcCurrent, pcNext - pcCurrent);
+      strncat(pcResult, pcCurrent, (size_t)(pcNext - pcCurrent));
 
       /* append replacement */
       strcat(pcResult, pcTo);
