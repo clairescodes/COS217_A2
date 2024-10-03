@@ -106,6 +106,6 @@ Is it possible for Str_copy or Str_concat to call assert to verify
 that the destination memory area specified by the caller is large
 enough? Explain.
 
-I don't think so. 
-
+I don't think so. Assert checks conditions at runtime but
+destination memory size cannot be done so runtime. 
 ------------------------------------------------------------------------
