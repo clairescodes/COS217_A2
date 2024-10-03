@@ -40,7 +40,7 @@ static size_t replaceAndWrite(const char *pcLine,
    }
 
    /* Hold result string */
-   char *pcResult = malloc(strlen(pcLine) + 1);
+   pcResult = malloc(strlen(pcLine) + 1);
    if (pcResult == NULL) {
       fprintf(stderr, "memory allocation unsuccessful\n");
       exit(EXIT_FAILURE);
