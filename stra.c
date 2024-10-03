@@ -34,10 +34,10 @@ size_t Str_getLength(const char pcSrc[]) {
 /*
  * Str_copy
  * Copies the string pcSrc to pcDest, including the null terminator.
- * The parameter pcDest is a pointer to a buffer where the copied string 
- * is stored, and pcSrc is a pointer to the null-terminated string 
+ * pcDest is a pointer to a buffer where the copied string 
+ * is stored and pcSrc is a pointer to the null-terminated string 
  * to be copied. The function returns a pointer to the destination 
- * string, pcDest.
+ * string which is pcDest.
  */
 char* Str_copy(char pcDest[], const char pcSrc[]) {
     size_t i = 0; 
@@ -53,11 +53,11 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
 
 /*
  * Str_concat
- * Concatenates the string pcSrc to the end of pcDest, including 
- * the null terminator. The parameter pcDest is a pointer to the 
- * destination string buffer where pcSrc is appended, and pcSrc 
- * is a pointer to the null-terminated string to append.
- * The function returns a pointer to the destination string, pcDest.
+ * 
+ * Appends the string pointed to by pcString2 to the end of the string 
+ * pointed to by pcString1. The final string is null-terminated, and 
+ * the buffer for pcString1 must be large enough to hold both the 
+ * original and appended strings. Returns a pointer to pcString1.
  */
 char* Str_concat(char pcString1[], const char pcString2[]) {
     size_t lenString1 = 0; /* length of string 1 */
@@ -81,12 +81,11 @@ char* Str_concat(char pcString1[], const char pcString2[]) {
 
 /*
  * Str_compare
- * Compares the two strings pcStr1 and pcStr2.
- * The parameters pcStr1 and pcStr2 are pointers to 
- * null-terminated strings. The function returns an 
- * integer less than, equal to, or greater than 0
- * if pcStr1 is found, respectively, to be less than 
- * equal to or greater than pcStr2.
+ * 
+ * Compares two null-terminated strings, pcString1 and pcString2. 
+ * Returns 0 if the strings are identical, a negative value if 
+ * pcString1 is lexicographically less than pcString2, and a positive 
+ * value if pcString1 is greater.
  */
 int Str_compare(const char pcString1[], const char pcString2[]) {
     size_t i = 0; 
@@ -109,11 +108,10 @@ int Str_compare(const char pcString1[], const char pcString2[]) {
 
 /*
  * Str_search
- * Searches for the first occurrence of the string pcNeedle 
- * in the string pcHaystack. The parameters pcHaystack and pcNeedle 
- * are pointers to null-terminated strings. The function returns a 
- * pointer to the first occurrence of pcNeedle in pcHaystack, 
- * or NULL if pcNeedle is not found.
+ * 
+ * Searches for the first occurrence of the string pcNeedle within the 
+ * string pcHaystack. Returns a pointer to the first occurrence of 
+ * pcNeedle, or NULL if pcNeedle is not found.
  */
 char* Str_search(const char pcHaystack[], const char pcNeedle[]) {
     size_t i, j; 

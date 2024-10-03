@@ -1,63 +1,64 @@
-/*--------------------------------------------------------------------*/
-/* str.h                                                              */
-/*                                                                    */
-/* This header file contains declarations for string                  */
-/* manipulation functions that mimic standard C string library        */
-/* functions, including getting the length of a string,               */
-/* copying one string to another, concatenating two strings,          */
-/* comparing two strings, and searching for a substring within        */
-/* another string.                                                    */
-/*--------------------------------------------------------------------*/
+/* 
+ * str.h                                                            
+ *                                                                  
+ * Contains declarations for functions that mimic standard 
+ * C string library functions like getting the length, copying
+ * one string to another, concatenating, comparing, and searching 
+ * for a substring.                                           
+ */
 
 #ifndef STR_H
 #define STR_H
 
 #include <stddef.h> 
+
+
+/*
+ * Str_getLength                                                      
+ *                                                                   
+ * Takes a pointer to a null-terminated string, pcSrc, and returns  
+ * the length of the string, which is the number of characters before
+ * the null terminator. 
+ */                                             
 size_t Str_getLength(const char pcSrc[]);
 
-/*--------------------------------------------------------------------*/
-/* Str_copy                                                           */
-/*                                                                    */
-/* This function copies the string pointed to by pcSrc into the       */
-/* buffer pointed to by pcDest, including the null terminator. The    */
-/* destination buffer must be large enough to hold the source string. */
-/* It returns a pointer to the destination string (pcDest) after      */
-/* copying. There is no direct interaction with stdout or stderr.     */
-/*--------------------------------------------------------------------*/
+/* 
+ * Str_copy                                                           
+ *                                                                   
+ * Copies string pointed to by pcSrc to the buffer pointed to by 
+ * pcDest, including null terminator. The destination buffer should 
+ * be large enough to contain source string. Returns pointer to  
+ * the destination string, pcDest.                                   
+*/
 char* Str_copy(char pcDest[], const char pcSrc[]);
 
-/*--------------------------------------------------------------------*/
-/* Str_concat                                                         */
-/*                                                                    */
-/* This function appends the string pointed to by pcSrc to the end of */
-/* the string pointed to by pcDest, ensuring that the final string is */
-/* null-terminated. The destination buffer must be large enough to    */
-/* hold both the original and appended strings. The function returns  */
-/* a pointer to the destination string (pcDest) after concatenation.  */
-/* No output is written to stdout or stderr.                          */
-/*--------------------------------------------------------------------*/
-char* Str_concat(char pcDest[], const char pcSrc[]);
+/* 
+ * Str_concat                                                        
+ *                                                                    
+ * Appends the string pointed to by pcString2 to the end of 
+ * the string pointed to by pcString1. Ensures the final string 
+ * is null-terminated.
+ * String1 buffer must be large enough to hold both the       
+ * original and appended strings. Returns a pointer to String1.                                       
+*/
+char* Str_concat(char pcString1[], const char pcString2[]); 
 
-/*--------------------------------------------------------------------*/
-/* Str_compare                                                        */
-/*                                                                    */
-/* This function compares two null-terminated strings, pcStr1 and     */
-/* pcStr2, lexicographically. The comparison is case-sensitive. It    */
-/* returns 0 if the strings are identical, a negative value if pcStr1 */
-/* is less than pcStr2, and a positive value if pcStr1 is greater     */
-/* than pcStr2. There is no interaction with stdout or stderr.        */
-/*--------------------------------------------------------------------*/
-int Str_compare(const char pcStr1[], const char pcStr2[]);
+/* 
+ * Str_compare                                                        
+ *                                                                    
+ * Compares two null-terminated strings pcStr1 and pcStr2. Returns   
+ * 0 if strings are identical; negative value if pcStr1 is less 
+ * than pcStr2; positive value if pcStr1 is greater than pcStr2.
+ */
+int Str_compare(const char pcString1[], const char pcString2[]); 
 
-/*--------------------------------------------------------------------*/
-/* Str_search                                                         */
-/*                                                                    */
-/* This function searches for the first occurrence of the substring   */
-/* pcNeedle within the string pcHaystack. If the substring is found,  */
-/* it returns a pointer to the first occurrence of pcNeedle within    */
-/* pcHaystack. If pcNeedle is not found, it returns NULL. The function*/
-/* does not produce any output to stdout or stderr.                   */
-/*--------------------------------------------------------------------*/
+/* 
+ * Str_search                                                       
+ *                                                                   
+ * Searches for the first occurrence of the string pcNeedle within  
+ * the string pcHaystack. Returns a pointer to the first occurrence 
+ * of pcNeedle in pcHaystack. Returns NULL if not found.  
+ */
 char* Str_search(const char pcHaystack[], const char pcNeedle[]);
 
 #endif 
