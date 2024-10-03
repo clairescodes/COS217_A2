@@ -1,3 +1,14 @@
+/*--------------------------------------------------------------------*/
+/* str.h                                                              */
+/*                                                                    */
+/* This header file contains declarations for string                  */
+/* manipulation functions that mimic standard C string library        */
+/* functions, including getting the length of a string,               */
+/* copying one string to another, concatenating two strings,          */
+/* comparing two strings, and searching for a substring within        */
+/* another string.                                                    */
+/*--------------------------------------------------------------------*/
+
 #ifndef STR_H
 #define STR_H
 
