@@ -13,16 +13,6 @@
 #define STR_H
 
 #include <stddef.h> 
-
-/*--------------------------------------------------------------------*/
-/* Str_getLength                                                      */
-/*                                                                    */
-/* This function returns the length of the null-terminated string     */
-/* pointed to by pcSrc. The length is calculated as the number of     */
-/* characters before the null terminator, and this length is returned */
-/* as a size_t value. The function does not produce any output to     */
-/* stdout or stderr.                                                  */
-/*--------------------------------------------------------------------*/
 size_t Str_getLength(const char pcSrc[]);
 
 /*--------------------------------------------------------------------*/

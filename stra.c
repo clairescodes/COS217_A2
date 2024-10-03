@@ -11,9 +11,9 @@
  * - Str_compare: Compares two strings lexicographically.
  * - Str_search: Searches for a substring within a string.
  */
-
 #include <stddef.h>
 #include <assert.h> 
+#include "str.h"
 
 /*
  * Str_getLength
