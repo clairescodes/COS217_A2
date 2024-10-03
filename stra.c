@@ -54,56 +54,56 @@ char* Str_copy(char pcDest[], const char pcSrc[]) {
 /*
  * Str_concat
  * 
- * Appends the string pointed to by pcString2 to the end of the string 
- * pointed to by pcString1. The final string is null-terminated, and 
- * the buffer for pcString1 must be large enough to hold both the 
- * original and appended strings. Returns a pointer to pcString1.
+ * Appends the string pointed to by pcStr2 to the end of the string 
+ * pointed to by pcStr1. The final string is null-terminated, and 
+ * the buffer for pcStr1 must be large enough to hold both the 
+ * original and appended strings. Returns a pointer to pcStr1.
  */
-char* Str_concat(char pcString1[], const char pcString2[]) {
-    size_t lenString1 = 0; /* length of string 1 */
+char* Str_concat(char pcStr1[], const char pcStr2[]) {
+    size_t lenStr1 = 0; /* length of string 1 */
     size_t i = 0; 
-    assert(pcString1 != NULL); 
-    assert(pcString2 != NULL); 
+    assert(pcStr1 != NULL); 
+    assert(pcStr2 != NULL); 
     
     /* measure length of string 1 */
-    while (pcString1[lenString1] != '\0') {
-        lenString1++; 
+    while (pcStr1[lenStr1] != '\0') {
+        lenStr1++; 
     }
 
-    while (pcString2[i] != '\0') {
-        pcString1[lenString1 + i] = pcString2[i]; 
+    while (pcStr2[i] != '\0') {
+        pcStr1[lenStr1 + i] = pcStr2[i]; 
         i++; 
     }
-    pcString1[lenString1 + i] = '\0'; /* add the null terminator */
+    pcStr1[lenStr1 + i] = '\0'; /* add the null terminator */
 
-    return pcString1; 
+    return pcStr1; 
 }
 
 /*
  * Str_compare
  * 
- * Compares two null-terminated strings, pcString1 and pcString2. 
+ * Compares two null-terminated strings, pcStr1 and pcStr2. 
  * Returns 0 if the strings are identical, a negative value if 
- * pcString1 is lexicographically less than pcString2, and a positive 
- * value if pcString1 is greater.
+ * pcStr1 is lexicographically less than pcStr2, and a positive 
+ * value if pcStr1 is greater.
  */
-int Str_compare(const char pcString1[], const char pcString2[]) {
+int Str_compare(const char pcStr1[], const char pcStr2[]) {
     size_t i = 0; 
-    assert(pcString1 != NULL); 
-    assert(pcString2 != NULL); 
+    assert(pcStr1 != NULL); 
+    assert(pcStr2 != NULL); 
     
     /* find index i where first unmatching character occurs */
-    while (pcString1[i] != '\0' && pcString2[i] != '\0') {
-        if (pcString1[i] != pcString2[i]) {
-            return (int)((unsigned char)pcString1[i] 
-            - (unsigned char)pcString2[i]);
+    while (pcStr1[i] != '\0' && pcStr2[i] != '\0') {
+        if (pcStr1[i] != pcStr2[i]) {
+            return (int)((unsigned char)pcStr1[i] 
+            - (unsigned char)pcStr2[i]);
         }
         i++;
     }
     
     /* return difference of the first different character */
-    return (int)((unsigned char)pcString1[i] 
-    - (unsigned char)pcString2[i]); 
+    return (int)((unsigned char)pcStr1[i] 
+    - (unsigned char)pcStr2[i]); 
 }
 
 /*
