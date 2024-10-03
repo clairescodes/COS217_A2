@@ -7,6 +7,7 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
+#include <string.h>
 
 /*--------------------------------------------------------------------*/
 
@@ -28,10 +29,10 @@ static size_t replaceAndWrite(const char *pcLine,
    size_t numReplacements = 0; /* count number of replaced */
 
    /* if pcFrom is empty string, then write string pcLine to 
-   stdout and return 0 */ 
+   stdout and return 0 */
    if (strlen(pcFrom) == 0) {
       printf("%s", pcLine);
-      return 0; 
+      return 0;
    }
 
    /* Hold result string */
