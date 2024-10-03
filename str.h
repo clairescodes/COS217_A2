@@ -35,23 +35,23 @@ char* Str_copy(char pcDest[], const char pcSrc[]);
 /* 
  * Str_concat                                                        
  *                                                                    
- * Appends the string pointed to by pcString2 to the end of 
- * the string pointed to by pcString1. Ensures the final string 
+ * Appends the string pointed to by pcStr2 to the end of 
+ * the string pointed to by pcStr1. Ensures the final string 
  * is null-terminated.
  * String1 buffer must be large enough to hold both the       
  * original and appended strings. Returns a pointer to String1.                                       
 */
-char* Str_concat(char pcString1[], const char pcString2[]); 
+char* Str_concat(char pcStr1[], const char pcStr2[]); 
 
 /* 
  * Str_compare                                                        
  *                                                                    
- * Compares two null-terminated strings pcString1 and pcString2. 
- * Returns 0 if strings are identical; negative value if pcString1 
- * is less than pcString2; positive value if pcString1 is greater 
- * than pcString2.
+ * Compares two null-terminated strings pcStr1 and pcStr2. 
+ * Returns 0 if strings are identical; negative value if pcStr1 
+ * is less than pcStr2; positive value if pcStr1 is greater 
+ * than pcStr2.
  */
-int Str_compare(const char pcString1[], const char pcString2[]); 
+int Str_compare(const char pcStr1[], const char pcStr2[]); 
 
 /* 
  * Str_search                                                       
